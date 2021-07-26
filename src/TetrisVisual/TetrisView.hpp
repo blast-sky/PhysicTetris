@@ -9,6 +9,8 @@
 #include "FloorView.hpp"
 #include "FigureHighLight.hpp"
 
+#include "../ParticalSystem/ParticalSystem.hpp"
+
 namespace pt
 {
 	class TetrisView
@@ -23,6 +25,7 @@ namespace pt
 		{ 
 			m_tetris.newFigureCreate.attach(&TetrisView::onNewFigureCreate, this);
 			m_tetris.figureFall.attach(&TetrisView::onFigureFall, this);
+			m_tetris.getSelectedFigure().figureCollide.attach(&TetrisView::onFigureCollide, this);
 
 			m_backroundTexture.loadFromFile("res/back.jpg");
 			m_backroundTexture.setRepeated(true);
@@ -45,6 +48,8 @@ namespace pt
 		~TetrisView()
 		{
 			m_tetris.newFigureCreate.detach(&TetrisView::onNewFigureCreate, this);
+			m_tetris.figureFall.detach(&TetrisView::onFigureFall, this);
+			m_tetris.getSelectedFigure().figureCollide.detach(&TetrisView::onFigureCollide, this);
 		}
 
 		void restart()
@@ -56,6 +61,11 @@ namespace pt
 				m_window.getSize().x,
 				m_window.getSize().y);
 			m_lastView.reset(rect);
+		}
+
+		void update(float dt)
+		{
+			m_particalSystem.update(dt);
 		}
 
 		void draw()
@@ -73,6 +83,9 @@ namespace pt
 			// Figure draw
 			for (auto& figure : m_figures)
 				m_window.draw(*figure);
+
+			// Partical system draw
+			m_window.draw(m_particalSystem);
 
 			// Floor draw
 			m_window.draw(*m_floor);
@@ -95,6 +108,9 @@ namespace pt
 		FigureHighLight m_highLight;
 		std::list<std::shared_ptr<IFigureView>> m_figures;
 		sf::View m_lastView;
+		sf::View m_neededView;
+
+		ps::ParticalSystem m_particalSystem;
 
 		sf::Texture m_backroundTexture;
 		sf::Texture m_floorTexture;
@@ -108,6 +124,17 @@ namespace pt
 			ptr.reset(new FigureShapeView(*castedFigure, m_figuresTexture, m_scale));
 			m_figures.push_back(ptr);
 			m_highLight.setFigure(figure);
+
+			m_particalSystem.addParticleSystem(
+				sf::Vector2f(Vector2f(figure->getPosition())) * m_scale,
+				sf::CircleShape(6), 1.f, 100);
+		}
+
+		void onFigureCollide(b2Vec2 figurePos)
+		{
+			m_particalSystem.addParticleSystem(
+				sf::Vector2f(Vector2f(figurePos)) * m_scale,
+				sf::CircleShape(10), 1.f, 60);
 		}
 
 		void onFigureFall(IFigureBody* figure)
@@ -116,6 +143,12 @@ namespace pt
 				{
 					return figure->getId() == checkFigure->getId();
 				});
+			calculateNeededView();
+		}
+
+		void calculateNeededView()
+		{
+
 		}
 
 		sf::View getNextView()
@@ -128,7 +161,7 @@ namespace pt
 			auto lower = sf::Vector2i(0, m_window.getSize().y * 0.20f);
 			auto figureLower = sf::Vector2i(0, m_window.getSize().y * 0.80f);
 
-			auto upperLine = m_window.mapPixelToCoords(upper, m_lastView).y; // spawn point beetwen 25-30% window height
+			auto upperLine = m_window.mapPixelToCoords(upper, m_lastView).y; // spawn point beetwen 10-20% window height
 			auto lowerLine = m_window.mapPixelToCoords(lower, m_lastView).y;
 			auto spawn = m_tetris.getSpawnPosition().y * m_scale;
 

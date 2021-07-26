@@ -6,13 +6,13 @@
 
 namespace pt
 {
-	class CurrentFigure
+	class SelectedFigure
 	{
 	public:
-		event<void()> figureCollide;
+		event<void(b2Vec2)> figureCollide;
 		const float rotateSpeed = 12.f;
 
-		CurrentFigure(b2World& world) :
+		SelectedFigure(b2World& world) :
 			m_world(world),
 			m_figure(nullptr),
 			m_speed(0.f, 0.f),
@@ -30,7 +30,7 @@ namespace pt
 			if (isCollideWithOtherFigures())
 			{
 				m_figure->setGravityScale(1.f);
-				figureCollide();
+				figureCollide(m_figure->getPosition());
 			}
 		}
 

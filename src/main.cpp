@@ -6,7 +6,7 @@
 #include "TetrisLogic/Tetris.hpp"
 #include "TetrisVisual/TetrisView.hpp"
 #include "TetrisVisual/MenuView.hpp"
-#include "InputController.hpp"
+#include "Scene.hpp"
 
 #include "States/MenuState.hpp"
 #include "TetrisLogic/Rules/StandartRules.hpp"
@@ -14,19 +14,19 @@
 int main()
 {
 	sf::ContextSettings settings;
-	settings.antialiasingLevel = 16u;
+	settings.antialiasingLevel = 8u;
 
-	sf::RenderWindow window(sf::VideoMode(600, 800), "Physical Tetris | v0.6 alpha", sf::Style::Close, settings);
+	sf::RenderWindow window(sf::VideoMode(600, 800), "Physical Tetris | v0.7 alpha", sf::Style::Close, settings);
 	pt::Tetris tetris(3.f);
 	pt::TetrisView view(window, tetris, 10.f);
 	pt::MenuView menu(window);
-	pt::InputController controller(tetris, view, menu);
+	pt::Scene scene(tetris, view, menu);
 
 	window.setKeyRepeatEnabled(true);
 	window.setFramerateLimit(60);
 
 	tetris.setRules(new pt::StandartRules(&tetris));
-	controller.setState(new pt::MenuState(&controller));
+	scene.setState(new pt::MenuState(&scene));
 
 	srand(time(0));
 	sf::Clock worldClock;
@@ -39,18 +39,18 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 
-			controller.checkEvent(event);
+			scene.checkEvent(event);
 		}
 
-		controller.update(worldClock.restart().asSeconds());
+		scene.update(worldClock.restart().asSeconds());
 		
 		if (spawnClock.getElapsedTime().asSeconds() > 5.f)
 		{
 			spawnClock.restart();
 		}
 
-		window.clear(sf::Color::Black);
-		controller.draw();
+		window.clear();
+		scene.draw();
 		window.display();
 	}
 

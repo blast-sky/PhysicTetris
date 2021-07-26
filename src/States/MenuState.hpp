@@ -4,7 +4,7 @@
 
 namespace pt
 {
-	MenuState::MenuState(InputController* controller) :
+	MenuState::MenuState(Scene* controller) :
 		m_controller(controller),
 		m_menu(controller->getMenu())
 	{	}

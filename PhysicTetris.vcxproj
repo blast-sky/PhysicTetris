@@ -150,13 +150,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Event.hpp" />
-    <ClInclude Include="src\InputController.hpp" />
+    <ClInclude Include="src\ParticalSystem\IParticle.hpp" />
+    <ClInclude Include="src\ParticalSystem\Particle.hpp" />
+    <ClInclude Include="src\ParticalSystem\ParticalSystem.hpp" />
+    <ClInclude Include="src\Scene.hpp" />
     <ClInclude Include="src\States\InGameState.hpp" />
     <ClInclude Include="src\States\IState.hpp" />
     <ClInclude Include="src\States\MenuState.hpp" />
     <ClInclude Include="src\States\RestartGameState.hpp" />
     <ClInclude Include="src\States\States.hpp" />
-    <ClInclude Include="src\TetrisLogic\CurrentFigure.hpp" />
+    <ClInclude Include="src\TetrisLogic\SelectedFigure.hpp" />
     <ClInclude Include="src\TetrisLogic\Figure\FigureCubesBody.hpp" />
     <ClInclude Include="src\TetrisLogic\Figure\Figures.hpp" />
     <ClInclude Include="src\TetrisLogic\Figure\FigureShapeBody.hpp" />

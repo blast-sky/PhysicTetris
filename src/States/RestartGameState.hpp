@@ -4,7 +4,7 @@
 
 namespace pt
 {
-	RestartGameState::RestartGameState(InputController* controller) :
+	RestartGameState::RestartGameState(Scene* controller) :
 		m_controller(controller)
 	{
 		controller->getView().restart();

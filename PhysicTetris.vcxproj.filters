@@ -28,6 +28,9 @@
     <Filter Include="Файлы заголовков\TetrisLogic\Rules">
       <UniqueIdentifier>{1194c771-8b92-4bfa-9cab-80daaface150}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\ParticleSystem">
+      <UniqueIdentifier>{41435a56-4781-4b51-a2f1-8fd99b71e996}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\States\InGameState.hpp">
@@ -66,7 +69,7 @@
     <ClInclude Include="src\TetrisLogic\Figure\IFigure.hpp">
       <Filter>Файлы заголовков\TetrisLogic\Figure</Filter>
     </ClInclude>
-    <ClInclude Include="src\TetrisLogic\CurrentFigure.hpp">
+    <ClInclude Include="src\TetrisLogic\SelectedFigure.hpp">
       <Filter>Файлы заголовков\TetrisLogic</Filter>
     </ClInclude>
     <ClInclude Include="src\TetrisLogic\Floor.hpp">
@@ -93,11 +96,20 @@
     <ClInclude Include="src\Event.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="src\InputController.hpp">
+    <ClInclude Include="src\Scene.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="src\Vector2f.hpp">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParticalSystem\Particle.hpp">
+      <Filter>Файлы заголовков\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParticalSystem\ParticalSystem.hpp">
+      <Filter>Файлы заголовков\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParticalSystem\IParticle.hpp">
+      <Filter>Файлы заголовков\ParticleSystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

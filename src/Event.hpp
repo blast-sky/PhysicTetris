@@ -124,6 +124,34 @@ public:
         * \param args arguments that will be passed to subscribed callbacks
         * \return TRet type returned by a callback of a subscriber
         */
+    /*template<typename _TRet = TRet>
+    std::enable_if_t<!std::is_same<_TRet, void>::value, _TRet>
+        operator() (Args... args)
+    {
+        removeLaters();
+
+        _TRet ret;
+
+        for (auto invokable : _invokables)
+        {
+            ret = std::invoke(*invokable, std::forward<Args>(args)...);
+        }
+
+        return ret;
+    }
+
+    template<typename _TRet = TRet>
+    std::enable_if_t<std::is_same<_TRet, void>::value, _TRet>
+        operator() (Args... args)
+    {
+        removeLaters();
+
+        for (auto invokable : _invokables)
+        {
+            std::invoke(*invokable, std::forward<Args>(args)...);
+        }
+    }*/
+
     template<typename _TRet = TRet>
     std::enable_if_t<!std::is_same<_TRet, void>::value, _TRet>
         operator() (Args&&... args)

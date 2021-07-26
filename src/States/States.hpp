@@ -1,21 +1,21 @@
 #pragma once
 
 #include "IState.hpp"
-#include "InputController.hpp"
+#include "Scene.hpp"
 
 namespace pt
 {
 	class MenuState : public IState
 	{
 	public:
-		MenuState(InputController* controller);
+		MenuState(Scene* controller);
 
 		void update(float dt) override;
 		void draw() override;
 		void eventCheck(sf::Event) override;
 
 	private:
-		InputController* m_controller;
+		Scene* m_controller;
 		MenuView& m_menu;
 	};
 
@@ -23,7 +23,7 @@ namespace pt
 	class InGameState : public IState
 	{
 	public:
-		InGameState(InputController* controller);
+		InGameState(Scene* controller);
 		~InGameState() override;
 
 		void draw() override;
@@ -31,7 +31,7 @@ namespace pt
 		void eventCheck(sf::Event) override;
 
 	private:
-		InputController* m_controller;
+		Scene* m_controller;
 		Tetris& m_tetris;
 		TetrisView& m_view;
 		bool m_isRightRotate = false;
@@ -46,12 +46,12 @@ namespace pt
 	class RestartGameState : public IState
 	{
 	public:
-		RestartGameState(InputController* controller);
+		RestartGameState(Scene* controller);
 
 		void update(float) override;
 		void draw() override;
 
 	private:
-		InputController* m_controller;
+		Scene* m_controller;
 	};
 }

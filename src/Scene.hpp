@@ -7,10 +7,10 @@
 
 namespace pt
 {
-	class InputController
+	class Scene
 	{
 	public:
-		InputController(Tetris& tetris, TetrisView& view, MenuView& menu);
+		Scene(Tetris& tetris, TetrisView& view, MenuView& menu);
 
 		void setState(IState* state);
 
@@ -26,46 +26,45 @@ namespace pt
 		Tetris& m_tetris;
 		TetrisView& m_view;
 		MenuView& m_menu;
-		IState* m_currentState;
+		std::unique_ptr<IState> m_currentState;
 	};
 
-	InputController::InputController(Tetris& tetris, TetrisView& view, MenuView& menu) :
+	Scene::Scene(Tetris& tetris, TetrisView& view, MenuView& menu) :
 		m_tetris(tetris),
 		m_view(view),
 		m_menu(menu),
 		m_currentState(nullptr)
 	{	}
 
-	void InputController::setState(IState* state)
+	void Scene::setState(IState* state)
 	{
-		if (m_currentState) delete m_currentState;
-		m_currentState = state;
+		m_currentState.reset(state);
 	}
 
-	void InputController::checkEvent(sf::Event event)
+	void Scene::checkEvent(sf::Event event)
 	{
 		m_currentState->eventCheck(event);
 	}
 
-	void InputController::draw()
+	void Scene::draw()
 	{
 		m_currentState->draw();
 	}
 
-	void InputController::update(float dt)
+	void Scene::update(float dt)
 	{
 		m_currentState->update(dt);
 	}
 
-	Tetris& InputController::getTetris()
+	Tetris& Scene::getTetris()
 	{
 		return m_tetris;
 	}
-	TetrisView& InputController::getView()
+	TetrisView& Scene::getView()
 	{
 		return m_view;
 	}
-	MenuView& InputController::getMenu()
+	MenuView& Scene::getMenu()
 	{
 		return m_menu;
 	}

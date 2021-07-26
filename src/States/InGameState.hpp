@@ -4,7 +4,7 @@
 
 namespace pt
 {
-	InGameState::InGameState(InputController* controller) :
+	InGameState::InGameState(Scene* controller) :
 		m_controller(controller),
 		m_tetris(controller->getTetris()),
 		m_view(controller->getView())
@@ -26,6 +26,7 @@ namespace pt
 	void InGameState::update(float dt)
 	{
 		m_tetris.update(dt);
+		m_view.update(dt);
 	}
 
 	void InGameState::eventCheck(sf::Event event)
