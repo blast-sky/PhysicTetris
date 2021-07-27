@@ -31,6 +31,12 @@
     <Filter Include="Файлы заголовков\ParticleSystem">
       <UniqueIdentifier>{41435a56-4781-4b51-a2f1-8fd99b71e996}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\ParticleSystem\Affector">
+      <UniqueIdentifier>{8a7dff0a-d55e-4466-8e1f-2624872132ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\ParticleSystem\Emitter">
+      <UniqueIdentifier>{586ceda2-20bc-455d-94b0-16309363569d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\States\InGameState.hpp">
@@ -110,6 +116,27 @@
     </ClInclude>
     <ClInclude Include="src\ParticalSystem\IParticle.hpp">
       <Filter>Файлы заголовков\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParticleSystem\ParticleSystemConfig.hpp">
+      <Filter>Файлы заголовков\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParticleSystem\IParticle.hpp">
+      <Filter>Файлы заголовков\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParticleSystem\ParticleSystem.hpp">
+      <Filter>Файлы заголовков\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParticleSystem\Particle.hpp">
+      <Filter>Файлы заголовков\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParticleSystem\Affector\IAffector.hpp">
+      <Filter>Файлы заголовков\ParticleSystem\Affector</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParticleSystem\Emitter\IEmitter.hpp">
+      <Filter>Файлы заголовков\ParticleSystem\Emitter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParticleSystem\Affector\DisapperingAffector.hpp">
+      <Filter>Файлы заголовков\ParticleSystem\Affector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -7,12 +7,12 @@
 
 namespace ps
 {
-	class ParticalSystem : public IParticle
+	class ParticleSystem : public IParticle
 	{
 	public:
-		ParticalSystem() = default;
+		ParticleSystem() = default;
 
-		ParticalSystem(sf::Vector2f position, const sf::CircleShape& exampleShape, float liveTime, int count) :
+		ParticleSystem(sf::Vector2f position, const sf::CircleShape& exampleShape, float liveTime, int count) :
 			m_shape(new sf::CircleShape(exampleShape)),
 			m_particles(count)
 		{
@@ -20,7 +20,7 @@ namespace ps
 			{
 				particle = std::unique_ptr<IParticle>(new Particle(position, m_shape, liveTime));
 
-				particle->finished.attach(&ParticalSystem::onParticleFinished, this); // without detach
+				particle->finished.attach(&ParticleSystem::onParticleFinished, this); // without detach
 
 				setRandomForces(particle.get());
 			}
@@ -28,7 +28,7 @@ namespace ps
 
 		void addParticleSystem(sf::Vector2f position, const sf::CircleShape& exampleShape, float liveTime, int count)
 		{
-			m_particles.push_back(std::unique_ptr<IParticle>(new ParticalSystem(position, exampleShape, liveTime, count)));
+			m_particles.push_back(std::unique_ptr<IParticle>(new ParticleSystem(position, exampleShape, liveTime, count)));
 		}
 
 		void update(float dt) override

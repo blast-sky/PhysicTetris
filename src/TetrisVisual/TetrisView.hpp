@@ -9,7 +9,7 @@
 #include "FloorView.hpp"
 #include "FigureHighLight.hpp"
 
-#include "../ParticalSystem/ParticalSystem.hpp"
+#include "../ParticleSystem/ParticleSystem.hpp"
 
 namespace pt
 {
@@ -110,7 +110,7 @@ namespace pt
 		sf::View m_lastView;
 		sf::View m_neededView;
 
-		ps::ParticalSystem m_particalSystem;
+		ps::ParticleSystem m_particalSystem;
 
 		sf::Texture m_backroundTexture;
 		sf::Texture m_floorTexture;
