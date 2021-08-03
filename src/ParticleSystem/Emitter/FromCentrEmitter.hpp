@@ -2,18 +2,22 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "IAffector.hpp"
+#include "IEmitter.hpp"
 
 namespace ps
 {
-	class DisapperingAffector : public IAffector
+	class DisapperingAffector : public IEmitter
 	{
 	public:
+		DisapperingAffector();
 
 	private:
+		sf::Vector2f m_linearForce;
+		float m_angularForce;
+
 		virtual void update(Particle* particle, float dt) override
 		{
-			particle->m_color.a = particle->m_remainLiveTime / particle->m_liveTime * 255;
+			
 		}
 	};
 }

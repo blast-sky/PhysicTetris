@@ -11,6 +11,8 @@
 
 #include "../ParticleSystem/ParticleSystem.hpp"
 
+#include "../Resources.hpp"
+
 namespace pt
 {
 	class TetrisView
@@ -27,12 +29,12 @@ namespace pt
 			m_tetris.figureFall.attach(&TetrisView::onFigureFall, this);
 			m_tetris.getSelectedFigure().figureCollide.attach(&TetrisView::onFigureCollide, this);
 
-			m_backroundTexture.loadFromFile("res/back.jpg");
+			m_backroundTexture = Resources::BackgroundTex;
 			m_backroundTexture.setRepeated(true);
 
-			m_figuresTexture.loadFromFile("res/tiles.png");
+			m_figuresTexture = Resources::FigureTex;
 
-			m_floorTexture.loadFromFile("res/ground.png");
+			m_floorTexture = Resources::FloorTex;
 			m_floorTexture.setRepeated(true);
 
 			m_floor.reset(new FloorView(m_tetris.getFloor(), m_floorTexture, scale));
@@ -104,9 +106,10 @@ namespace pt
 	private:
 		sf::RenderWindow& m_window;
 		Tetris& m_tetris;
-		std::shared_ptr<FloorView> m_floor;
 		FigureHighLight m_highLight;
+		std::unique_ptr<FloorView> m_floor;
 		std::list<std::shared_ptr<IFigureView>> m_figures;
+
 		sf::View m_lastView;
 		sf::View m_neededView;
 

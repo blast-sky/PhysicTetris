@@ -108,15 +108,6 @@
     <ClInclude Include="src\Vector2f.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="src\ParticalSystem\Particle.hpp">
-      <Filter>Файлы заголовков\ParticleSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ParticalSystem\ParticalSystem.hpp">
-      <Filter>Файлы заголовков\ParticleSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ParticalSystem\IParticle.hpp">
-      <Filter>Файлы заголовков\ParticleSystem</Filter>
-    </ClInclude>
     <ClInclude Include="src\ParticleSystem\ParticleSystemConfig.hpp">
       <Filter>Файлы заголовков\ParticleSystem</Filter>
     </ClInclude>
@@ -138,10 +129,38 @@
     <ClInclude Include="src\ParticleSystem\Affector\DisapperingAffector.hpp">
       <Filter>Файлы заголовков\ParticleSystem\Affector</Filter>
     </ClInclude>
+    <ClInclude Include="src\ParticleSystem\Emitter\FromCentrEmitter.hpp">
+      <Filter>Файлы заголовков\ParticleSystem\Emitter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Resources.hpp">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PhysicTetris.rc">
+      <Filter>Файлы ресурсов</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\back.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="res\ground.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="res\tiles.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\font.otf" />
   </ItemGroup>
 </Project>

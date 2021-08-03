@@ -37,19 +37,16 @@ namespace ps
 		void update(float dt) override
 		{
 			if ((m_remainLiveTime -= dt) <= 0.f)
-			{
 				finished(this);
-			}
-			else
-			{
-				m_color.a = m_remainLiveTime / m_liveTime * 255;
 
-				m_angularSpeed += m_angularForce * dt;
-				rotate(m_angularSpeed * dt);
+			m_angularSpeed += m_angularForce * dt;
+			rotate(m_angularSpeed * dt);
 
-				m_linearSpeed += m_linearForce * dt;
-				move(m_linearSpeed * dt);
-			}
+			m_linearSpeed += m_linearForce * dt;
+			move(m_linearSpeed * dt);
+
+			m_linearForce = sf::Vector2f(0.f, 0.f);
+			m_angularForce = 0;
 		}
 
 		void draw(sf::RenderTarget& rt, sf::RenderStates rs) const override

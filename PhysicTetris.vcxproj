@@ -149,17 +149,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="src\Event.hpp" />
-    <ClInclude Include="src\ParticalSystem\IParticle.hpp" />
-    <ClInclude Include="src\ParticalSystem\Particle.hpp" />
-    <ClInclude Include="src\ParticalSystem\ParticalSystem.hpp" />
     <ClInclude Include="src\ParticleSystem\Affector\DisapperingAffector.hpp" />
     <ClInclude Include="src\ParticleSystem\Affector\IAffector.hpp" />
+    <ClInclude Include="src\ParticleSystem\Emitter\FromCentrEmitter.hpp" />
     <ClInclude Include="src\ParticleSystem\Emitter\IEmitter.hpp" />
     <ClInclude Include="src\ParticleSystem\IParticle.hpp" />
     <ClInclude Include="src\ParticleSystem\ParticleSystem.hpp" />
     <ClInclude Include="src\ParticleSystem\Particle.hpp" />
     <ClInclude Include="src\ParticleSystem\ParticleSystemConfig.hpp" />
+    <ClInclude Include="src\Resources.hpp" />
     <ClInclude Include="src\Scene.hpp" />
     <ClInclude Include="src\States\InGameState.hpp" />
     <ClInclude Include="src\States\IState.hpp" />
@@ -185,6 +185,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PhysicTetris.rc">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\back.png" />
+    <Image Include="res\ground.png" />
+    <Image Include="res\tiles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\font.otf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

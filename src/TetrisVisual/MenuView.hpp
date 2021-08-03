@@ -14,10 +14,12 @@ namespace pt
 			m_text(),
 			m_time(0)
 		{
-			m_background.loadFromFile("res/back.jpg");
-			m_font.loadFromFile("res/font1.otf");
-			textPrepaire();
+			m_background = Resources::BackgroundTex;
 			m_background.setRepeated(true);
+
+			m_font = Resources::Font;
+			
+			textPrepaire();
 		}
 
 		void update(float dt)

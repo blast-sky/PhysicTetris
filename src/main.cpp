@@ -11,8 +11,12 @@
 #include "States/MenuState.hpp"
 #include "TetrisLogic/Rules/StandartRules.hpp"
 
+#include "Resources.hpp"
+
 int main()
 {
+	pt::Resources::load();
+
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 8u;
 
