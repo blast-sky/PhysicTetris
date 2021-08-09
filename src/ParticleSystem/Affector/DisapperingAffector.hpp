@@ -1,7 +1,5 @@
 #pragma once
-
 #include <SFML/Graphics.hpp>
-
 #include "IAffector.hpp"
 
 namespace ps
@@ -11,9 +9,17 @@ namespace ps
 	public:
 
 	private:
-		virtual void update(Particle* particle, float dt) override
+		virtual void update(std::vector<Particle>& particles, float dt) override
 		{
-			particle->m_color.a = particle->m_remainLiveTime / particle->m_liveTime * 255;
+			for (auto& particle : particles)
+			{
+				particle.getColor().a = particle.getRemainLiveTime() / particle.getLiveTime() * 255.f;
+			}
+		}
+
+		IAffector* clone() override
+		{
+			return new DisapperingAffector();
 		}
 	};
 }

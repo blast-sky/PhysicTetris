@@ -94,7 +94,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\79307\source\repos\PhysicTetris\extern\box2d\lib\x32\Debug;C:\Users\79307\source\libraries\SFML-2.5.1\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>box2d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-graphics-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>box2d.lib;sfml-audio-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-graphics-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -113,7 +113,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\79307\source\repos\PhysicTetris\extern\box2d\lib\x32\Release;C:\Users\79307\source\libraries\SFML-2.5.1\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>box2d.lib;sfml-window-s.lib;sfml-system-s.lib;sfml-graphics-s.lib;opengl32.lib;freetype.lib;gdi32.lib;winmm.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>box2d.lib;sfml-window-s.lib;sfml-system-s.lib;sfml-graphics-s.lib;sfml-audio-s.lib;opengl32.lib;freetype.lib;gdi32.lib;winmm.lib;sfml-main.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -153,12 +153,15 @@
     <ClInclude Include="src\Event.hpp" />
     <ClInclude Include="src\ParticleSystem\Affector\DisapperingAffector.hpp" />
     <ClInclude Include="src\ParticleSystem\Affector\IAffector.hpp" />
+    <ClInclude Include="src\ParticleSystem\Affector\RainbowAffector.hpp" />
     <ClInclude Include="src\ParticleSystem\Emitter\FromCentrEmitter.hpp" />
     <ClInclude Include="src\ParticleSystem\Emitter\IEmitter.hpp" />
-    <ClInclude Include="src\ParticleSystem\IParticle.hpp" />
+    <ClInclude Include="src\ParticleSystem\Emitter\PhysicalEmitter.hpp" />
+    <ClInclude Include="src\ParticleSystem\Finishable.hpp" />
     <ClInclude Include="src\ParticleSystem\ParticleSystem.hpp" />
     <ClInclude Include="src\ParticleSystem\Particle.hpp" />
     <ClInclude Include="src\ParticleSystem\ParticleSystemConfig.hpp" />
+    <ClInclude Include="src\ParticleSystem\ParticleSystemList.hpp" />
     <ClInclude Include="src\Resources.hpp" />
     <ClInclude Include="src\Scene.hpp" />
     <ClInclude Include="src\States\InGameState.hpp" />
@@ -180,6 +183,7 @@
     <ClInclude Include="src\TetrisVisual\FigureView.hpp" />
     <ClInclude Include="src\TetrisVisual\FloorView.hpp" />
     <ClInclude Include="src\TetrisVisual\MenuView.hpp" />
+    <ClInclude Include="src\TetrisVisual\ParticlesTemplate.hpp" />
     <ClInclude Include="src\TetrisVisual\TetrisView.hpp" />
     <ClInclude Include="src\Vector2f.hpp" />
   </ItemGroup>
@@ -198,6 +202,11 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="res\font.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\bottle.ogg" />
+    <None Include="res\buble.ogg" />
+    <None Include="res\Zapp-ICanMakeYouDance.ogg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

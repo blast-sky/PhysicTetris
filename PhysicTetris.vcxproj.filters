@@ -111,9 +111,6 @@
     <ClInclude Include="src\ParticleSystem\ParticleSystemConfig.hpp">
       <Filter>Файлы заголовков\ParticleSystem</Filter>
     </ClInclude>
-    <ClInclude Include="src\ParticleSystem\IParticle.hpp">
-      <Filter>Файлы заголовков\ParticleSystem</Filter>
-    </ClInclude>
     <ClInclude Include="src\ParticleSystem\ParticleSystem.hpp">
       <Filter>Файлы заголовков\ParticleSystem</Filter>
     </ClInclude>
@@ -132,11 +129,26 @@
     <ClInclude Include="src\ParticleSystem\Emitter\FromCentrEmitter.hpp">
       <Filter>Файлы заголовков\ParticleSystem\Emitter</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParticleSystem\ParticleSystemList.hpp">
+      <Filter>Файлы заголовков\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParticleSystem\Finishable.hpp">
+      <Filter>Файлы заголовков\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TetrisVisual\ParticlesTemplate.hpp">
+      <Filter>Файлы заголовков\TetrisVisual</Filter>
+    </ClInclude>
     <ClInclude Include="src\Resources.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="src\ParticleSystem\Emitter\PhysicalEmitter.hpp">
+      <Filter>Файлы заголовков\ParticleSystem\Emitter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParticleSystem\Affector\RainbowAffector.hpp">
+      <Filter>Файлы заголовков\ParticleSystem\Affector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +173,19 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="res\font.otf" />
+    <Font Include="res\font.otf">
+      <Filter>Файлы ресурсов</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\buble.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="res\bottle.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="res\Zapp-ICanMakeYouDance.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
   </ItemGroup>
 </Project>

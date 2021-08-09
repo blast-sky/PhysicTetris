@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../Particle.hpp"
 
 namespace ps
@@ -8,6 +7,7 @@ namespace ps
 	{
 	public:
 		virtual ~IAffector() {};
-		virtual void update(Particle* particle, float dt) = 0;
+		virtual IAffector* clone() = 0;
+		virtual void update(std::vector<Particle>& particles, float dt) = 0;
 	};
 }

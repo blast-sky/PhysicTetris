@@ -8,11 +8,11 @@ namespace pt
 	struct Vector2f
 	{
 	public:
-		Vector2f(sf::Vector2f vec = sf::Vector2f())
+		Vector2f(const sf::Vector2f vec = sf::Vector2f())
 			: x(vec.x), y(vec.y)
 		{ }
 
-		Vector2f(b2Vec2 vec)
+		Vector2f(const b2Vec2 vec)
 			: x(vec.x), y(vec.y)
 		{ }
 

@@ -32,7 +32,7 @@ namespace pt
 			m_world(b2Vec2(0.f, 10.f)),
 			normalFigureSpeed(0.f, cubeSize * 1.f),
 			fastFigureSpeed(0.f, cubeSize * 6.f),
-			m_selectedFigure(m_world),
+			m_selectedFigure(m_world, cubeSize),
 			m_floor(m_world, b2Vec2(0.f, 0.f), b2Vec2(cubeSize * 10.f, cubeSize)),
 			normalMoveOffset(cubeSize / 2.f, 0.f),
 			m_higherPosition(0.f, 0.f),
@@ -40,7 +40,7 @@ namespace pt
 			m_lastSpawn(m_spawn),
 			m_cubeSize(cubeSize),
 			m_fallFigureCount(0),
-			m_frameAfterFigureCreate(-1)
+			m_frameAfterFigureCreate(0)
 		{	
 			m_selectedFigure.figureCollide.attach(&Tetris::onCurrentFigureCollide, this);
 		}
@@ -72,16 +72,24 @@ namespace pt
 		{
 			m_world.Step(deltaTimeAsSecond, 8, 3);
 			m_selectedFigure.update();
-			//higherPositionCheck();
+			calculateHigherPos();
 			figureFallsCheck();
-			if (m_rules->isGameOver()) gameOver();
-			else if (m_rules->isGameWon()) gameWon();
+			if (m_rules->isGameOver())
+			{
+				gameOver();
+				return;
+			}
+			else if (m_rules->isGameWon())
+			{
+				gameWon();
+				return;
+			}
 			++m_frameAfterFigureCreate;
 		}
 
 		void createRandomFigure(b2Vec2 pos)
 		{
-			m_frameAfterFigureCreate = -1;
+			m_frameAfterFigureCreate = 0;
 			auto newFigure = new FigureShapeBody(m_world, m_cubeSize);
 			newFigure->setPosition(pos);
 			
@@ -92,11 +100,11 @@ namespace pt
 
 		void createRandomFigure()
 		{
-			auto pos = getHigherPosition();
-			pos.x = m_spawn.x;
-			pos.y -= m_cubeSize * 10.f;
-			if (m_spawn.y > pos.y)
-				m_lastSpawn = pos;
+			auto higherPos = getHigherPosition();
+			higherPos.x = m_spawn.x;
+			higherPos.y -= m_cubeSize * 15.f;
+			if (m_spawn.y > higherPos.y)
+				m_lastSpawn = higherPos;
 			else
 				m_lastSpawn = m_spawn;
 			createRandomFigure(m_lastSpawn);
@@ -159,22 +167,11 @@ namespace pt
 
 		void onCurrentFigureCollide(b2Vec2 figurePos)
 		{
-           	if (m_frameAfterFigureCreate <= 0)
+           	if (m_frameAfterFigureCreate <= 1)
 				gameOver();
 			else
 				createRandomFigure();
 			calculateHigherPos();
-		}
-
-		void higherPositionCheck()
-		{
-			/*b2Vec2 higherPos(0.f, FLT_MAX);
-			for (auto& figure : m_figuresInWorld)
-			{
-				if (higherPos.y > figure->getPosition().y)
-					higherPos = figure->getPosition();
-			}
-			m_higherPosition = higherPos;*/
 		}
 
 		void calculateHigherPos()
@@ -201,8 +198,6 @@ namespace pt
 				{
 					figureFall(dynamic_cast<IFigureBody*>(figure));
 					removeList.push_back(figure);
-					if (m_selectedFigure.getFigure() == figure)
-						createRandomFigure();
 				}
 			}
 
@@ -211,10 +206,12 @@ namespace pt
 			for (auto& figure : removeList)
 				m_figuresInWorld.remove(figure);
 
+			for (auto& figure : removeList)
+				if (m_selectedFigure.getFigure() == figure)
+					createRandomFigure();
+
 			if (removeList.size() > 0)
 				calculateHigherPos();
 		}
-
-		friend class IRules;
 	};
 }

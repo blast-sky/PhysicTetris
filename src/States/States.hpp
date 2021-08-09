@@ -15,7 +15,7 @@ namespace pt
 		void eventCheck(sf::Event) override;
 
 	private:
-		Scene* m_controller;
+		Scene* m_scene;
 		MenuView& m_menu;
 	};
 
@@ -31,11 +31,11 @@ namespace pt
 		void eventCheck(sf::Event) override;
 
 	private:
-		Scene* m_controller;
+		Scene* m_scene;
 		Tetris& m_tetris;
 		TetrisView& m_view;
-		bool m_isRightRotate = false;
-		bool m_isLeftRotate = false;
+		bool m_isRightRotateKeyPressed = false;
+		bool m_isLeftRotateKeyPressed = false;
 
 		void onGameOver();
 
@@ -52,6 +52,6 @@ namespace pt
 		void draw() override;
 
 	private:
-		Scene* m_controller;
+		Scene* m_scene;
 	};
 }

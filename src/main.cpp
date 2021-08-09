@@ -20,7 +20,7 @@ int main()
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 8u;
 
-	sf::RenderWindow window(sf::VideoMode(600, 800), "Physical Tetris | v0.7 alpha", sf::Style::Close, settings);
+	sf::RenderWindow window(sf::VideoMode(600, 800), "Physical Tetris | v1.1 betha", sf::Style::Close, settings);
 	pt::Tetris tetris(3.f);
 	pt::TetrisView view(window, tetris, 10.f);
 	pt::MenuView menu(window);

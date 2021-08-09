@@ -5,7 +5,7 @@
 namespace pt
 {
 	RestartGameState::RestartGameState(Scene* controller) :
-		m_controller(controller)
+		m_scene(controller)
 	{
 		controller->getView().restart();
 		controller->getTetris().restart();
@@ -13,11 +13,11 @@ namespace pt
 
 	void RestartGameState::update(float)
 	{
-		m_controller->setState(new InGameState(m_controller));
+		m_scene->setState(new InGameState(m_scene));
 	}
 
 	void RestartGameState::draw()
 	{
-		m_controller->setState(new InGameState(m_controller));
+		m_scene->setState(new InGameState(m_scene));
 	}
 }

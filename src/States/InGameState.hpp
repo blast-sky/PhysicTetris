@@ -1,16 +1,19 @@
 #pragma once
-
 #include "States.hpp"
+#include "../Resources.hpp"
 
 namespace pt
 {
 	InGameState::InGameState(Scene* controller) :
-		m_controller(controller),
+		m_scene(controller),
 		m_tetris(controller->getTetris()),
 		m_view(controller->getView())
 	{
 		m_tetris.gameOver.attach(&InGameState::onGameOver, this);
 		m_tetris.setCurrentFigureSpeed(m_tetris.normalFigureSpeed);
+		Resources::BackMusic.setLoop(true);
+		Resources::BackMusic.setVolume(10.f);
+		Resources::BackMusic.play();
 	}
 
 	InGameState::~InGameState()
@@ -25,8 +28,8 @@ namespace pt
 
 	void InGameState::update(float dt)
 	{
-		m_tetris.update(dt);
 		m_view.update(dt);
+		m_tetris.update(dt);
 	}
 
 	void InGameState::eventCheck(sf::Event event)
@@ -44,21 +47,49 @@ namespace pt
 		switch (event.key.code)
 		{
 		case sf::Keyboard::Q:
-			if (!m_isRightRotate)
+			if (!m_isRightRotateKeyPressed)
 			{
 				m_tetris.rotateCurrentFigure(-PI / 2.f);
-				m_isRightRotate = 1;
+				m_isRightRotateKeyPressed = 1;
 			}
 			break;
 		case sf::Keyboard::E:
-			if (!m_isLeftRotate)
+			if (!m_isLeftRotateKeyPressed)
 			{
 				m_tetris.rotateCurrentFigure(PI / 2.f);
-				m_isLeftRotate = 1;
+				m_isLeftRotateKeyPressed = 1;
 			}
 			break;
-		case sf::Keyboard::D: m_tetris.moveCurrentFigure(m_tetris.normalMoveOffset); break;
-		case sf::Keyboard::A: m_tetris.moveCurrentFigure(-m_tetris.normalMoveOffset); break;
+		case sf::Keyboard::D: 
+		{
+			b2Vec2 offset;
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
+			{
+				offset.x = m_tetris.normalMoveOffset.x * 2.f;
+				offset.y = m_tetris.normalMoveOffset.y * 2.f;
+			}
+			else
+			{
+				offset = m_tetris.normalMoveOffset;
+			}
+			m_tetris.moveCurrentFigure(offset);
+			break;
+		}
+		case sf::Keyboard::A:
+		{
+			b2Vec2 offset;
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))
+			{
+				offset.x = -m_tetris.normalMoveOffset.x * 2.f;
+				offset.y = -m_tetris.normalMoveOffset.y * 2.f;
+			}
+			else
+			{
+				offset = -m_tetris.normalMoveOffset;
+			}
+			m_tetris.moveCurrentFigure(offset);
+			break;
+		}
 		case sf::Keyboard::S: m_tetris.setCurrentFigureSpeed(m_tetris.fastFigureSpeed); break;
 		default: break;
 		}
@@ -68,8 +99,8 @@ namespace pt
 	{
 		switch (event.key.code)
 		{
-		case sf::Keyboard::Q: m_isRightRotate = 0; break;
-		case sf::Keyboard::E: m_isLeftRotate = 0; break;
+		case sf::Keyboard::Q: m_isRightRotateKeyPressed = 0; break;
+		case sf::Keyboard::E: m_isLeftRotateKeyPressed = 0; break;
 		case sf::Keyboard::D: break;
 		case sf::Keyboard::A: break;
 		case sf::Keyboard::S: m_tetris.setCurrentFigureSpeed(m_tetris.normalFigureSpeed); break;
@@ -79,6 +110,7 @@ namespace pt
 
 	void InGameState::onGameOver()
 	{
-		m_controller->setState(new MenuState(m_controller));
+		Resources::BackMusic.stop();
+		m_scene->setState(new MenuState(m_scene));
 	}
 }

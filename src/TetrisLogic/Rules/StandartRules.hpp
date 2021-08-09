@@ -15,6 +15,6 @@ namespace pt
 
 	bool StandartRules::isGameOver()
 	{
-		return false;//m_tetris->getFallFigureCount() >= 2;
+		return m_tetris->getFallFigureCount() >= 3;
 	}
 }

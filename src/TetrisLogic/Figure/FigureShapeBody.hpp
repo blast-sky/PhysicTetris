@@ -60,18 +60,6 @@ namespace pt
 		void setVelocity(b2Vec2 velocity) override
 		{
 			m_body->SetLinearVelocity(velocity);
-			
-			// вывод всех вершин
-			/*for (auto fixture = m_body->GetFixtureList(); fixture; fixture = fixture->GetNext())
-			{
-				auto shape = reinterpret_cast<b2PolygonShape*>(fixture->GetShape());
-				for (int i = 0; i < shape->m_count; ++i)
-				{
-					auto& vert = shape->m_vertices[i];
-					std::cout << vert.x << " " << vert.y << " ";
-				}
-				std::cout << '\n';
-			}*/
 		}
 
 		void setGravityScale(float scale) override

@@ -4,10 +4,11 @@
 
 namespace ps
 {
-	class IEmitter
+	class IEmitter : public sf::Transformable
 	{
 	public:
 		virtual ~IEmitter() {};
-		virtual void update(Particle* particle, float dt) = 0;
+		virtual IEmitter* clone() = 0;
+		virtual void update(std::vector<Particle>& particles, float dt) = 0;
 	};
 }
