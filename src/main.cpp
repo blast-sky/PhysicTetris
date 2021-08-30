@@ -15,8 +15,6 @@
 
 int main()
 {
-	pt::Resources::load();
-
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 8u;
 

@@ -11,18 +11,28 @@ namespace pt
 	class Resources
 	{
 	public:
-		static sf::Texture BackgroundTex;
-		static sf::Texture FloorTex;
-		static sf::Texture FigureTex;
+		sf::Texture BackgroundTex;
+		sf::Texture FloorTex;
+		sf::Texture FigureTex;
 
-		static sf::Font Font;
+		sf::Font Font;
 
-		static sf::Sound FigureSpawnSound;
-		static sf::Sound FigureCollishionSound;
+		sf::Sound FigureSpawnSound;
+		sf::Sound FigureCollishionSound;
 
-		static sf::Music BackMusic;
+		sf::Music BackMusic;
 
-		static void load()
+		static Resources& getInstance()
+		{
+			static Resources resource;
+			return resource;
+		}
+
+	private:
+		sf::SoundBuffer m_figureSpawnSoundBuffer;
+		sf::SoundBuffer m_FigureCollishionSoundBuffer;
+
+		Resources()
 		{
 			HRSRC find;
 			HGLOBAL res;
@@ -65,22 +75,5 @@ namespace pt
 			size = SizeofResource(NULL, find);
 			BackMusic.openFromMemory(res, size);
 		}
-
-	private:
-		static sf::SoundBuffer m_figureSpawnSoundBuffer;
-		static sf::SoundBuffer m_FigureCollishionSoundBuffer;
 	};
-
-	sf::Texture Resources::BackgroundTex;
-	sf::Texture Resources::FloorTex;
-	sf::Texture Resources::FigureTex;
-
-	sf::Font Resources::Font;
-
-	sf::Sound Resources::FigureSpawnSound;
-	sf::SoundBuffer Resources::m_figureSpawnSoundBuffer;
-	sf::Sound Resources::FigureCollishionSound;
-	sf::SoundBuffer Resources::m_FigureCollishionSoundBuffer;
-
-	sf::Music Resources::BackMusic;
 }

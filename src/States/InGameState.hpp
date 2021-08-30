@@ -11,9 +11,9 @@ namespace pt
 	{
 		m_tetris.gameOver.attach(&InGameState::onGameOver, this);
 		m_tetris.setCurrentFigureSpeed(m_tetris.normalFigureSpeed);
-		Resources::BackMusic.setLoop(true);
-		Resources::BackMusic.setVolume(10.f);
-		Resources::BackMusic.play();
+		Resources::getInstance().BackMusic.setLoop(true);
+		Resources::getInstance().BackMusic.setVolume(10.f);
+		Resources::getInstance().BackMusic.play();
 	}
 
 	InGameState::~InGameState()
@@ -110,7 +110,7 @@ namespace pt
 
 	void InGameState::onGameOver()
 	{
-		Resources::BackMusic.stop();
+		Resources::getInstance().BackMusic.stop();
 		m_scene->setState(new MenuState(m_scene));
 	}
 }

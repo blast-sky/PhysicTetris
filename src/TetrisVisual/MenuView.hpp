@@ -14,10 +14,10 @@ namespace pt
 			m_text(),
 			m_time(0)
 		{
-			m_background = Resources::BackgroundTex;
+			m_background = Resources::getInstance().BackgroundTex;
 			m_background.setRepeated(true);
 
-			m_font = Resources::Font;
+			m_font = Resources::getInstance().Font;
 			
 			textPrepaire();
 		}

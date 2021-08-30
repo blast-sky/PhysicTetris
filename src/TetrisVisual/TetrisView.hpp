@@ -30,12 +30,12 @@ namespace pt
 			m_tetris.figureFall.attach(&TetrisView::onFigureFall, this);
 			m_tetris.getSelectedFigure().figureCollide.attach(&TetrisView::onFigureCollide, this);
 
-			m_backroundTexture = Resources::BackgroundTex;
+			m_backroundTexture = Resources::getInstance().BackgroundTex;
 			m_backroundTexture.setRepeated(true);
 
-			m_figuresTexture = Resources::FigureTex;
+			m_figuresTexture = Resources::getInstance().FigureTex;
 
-			m_floorTexture = Resources::FloorTex;
+			m_floorTexture = Resources::getInstance().FloorTex;
 			m_floorTexture.setRepeated(true);
 
 			m_floor.reset(new FloorView(m_tetris.getFloor(), m_floorTexture, scale));
@@ -127,7 +127,7 @@ namespace pt
 			config.position = sf::Vector2f(Vector2f(figure->getPosition())) * m_scale;
 			m_particleSystems.addParticleSystem(config);
 
-			Resources::FigureSpawnSound.play();
+			Resources::getInstance().FigureSpawnSound.play();
 		}
 
 		void onFigureCollide(b2Vec2 figurePos)

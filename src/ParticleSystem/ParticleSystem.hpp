@@ -14,20 +14,6 @@ namespace ps
 		ParticleSystem() = default;
 		ParticleSystem(const ParticleSystem&) = default;
 
-		//ParticleSystem(sf::Vector2f position, const sf::CircleShape& exampleShape, float liveTime, int count) :
-		//	m_shape(new sf::CircleShape(exampleShape)),
-		//	m_particles(count)
-		//{
-		//	for (auto& particle : m_particles)
-		//	{
-		//		particle = std::unique_ptr<Particle>(new Particle(position, m_shape, liveTime));
-
-		//		particle->finished.attach(&ParticleSystem::onParticleFinished, this); // without detach
-
-		//		setRandomForces(particle.get());
-		//	}
-		//};
-
 		ParticleSystem(const ParticleSystemConfig& config) :
 			m_config(config),
 			m_particles(m_config.count, Particle(m_config.position, m_config.shape, m_config.liveTime))
