@@ -1,3 +1,0 @@
-C:/Users/79307/Desktop/pt cmake/build/CMakeFiles/PhysicTetris.dir
-C:/Users/79307/Desktop/pt cmake/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/79307/Desktop/pt cmake/build/CMakeFiles/ZERO_CHECK.dir
