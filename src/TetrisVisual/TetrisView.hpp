@@ -139,7 +139,7 @@ namespace pt
 			//Resources::FigureCollishionSound.play();
 		}
 
-		void onFigureFall(IFigureBody* figure)
+		void onFigureFall(IFigureBody*& figure)
 		{
 			m_figures.remove_if([figure](std::shared_ptr<IFigureView>& checkFigure) -> bool
 				{

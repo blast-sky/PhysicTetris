@@ -1,3 +1,8 @@
+#ifndef _DEBUG
+#define SFML_STATIC
+#pragma comment(linker, "/SUBSYSTEM:WINDOWS")
+#endif
+
 #include <iostream>
 
 #include <SFML/Graphics.hpp>
@@ -12,6 +17,8 @@
 #include "TetrisLogic/Rules/StandartRules.hpp"
 
 #include "Resources.hpp"
+
+
 
 int main()
 {

@@ -20,7 +20,7 @@ namespace pt
 	{
 	public:
 		event<void(IFigureBody*)> newFigureCreate;
-		event<void(IFigureBody*)> figureFall;
+		event<void(IFigureBody*&)> figureFall;
 		event<void()> gameWon;
 		event<void()> gameOver;
 
@@ -196,7 +196,7 @@ namespace pt
 				auto b = 0.f + m_cubeSize * 6.f; // point of figure deleting
 				if (yPos > b)
 				{
-					figureFall(dynamic_cast<IFigureBody*>(figure));
+					figureFall(figure);
 					removeList.push_back(figure);
 				}
 			}

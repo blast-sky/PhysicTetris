@@ -50,11 +50,11 @@ END
 // PNG
 //
 
-IDB_PNG1                PNG                     "res\\back.png"
+IDB_PNG1                PNG                     "..\\res\\back.png"
 
-IDB_PNG2                PNG                     "res\\ground.png"
+IDB_PNG2                PNG                     "..\\res\\ground.png"
 
-IDB_PNG3                PNG                     "res\\tiles.png"
+IDB_PNG3                PNG                     "..\\res\\tiles.png"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -62,7 +62,7 @@ IDB_PNG3                PNG                     "res\\tiles.png"
 // MY_FONT
 //
 
-IDR_MY_FONT2            MY_FONT                 "res\\font.otf"
+IDR_MY_FONT2            MY_FONT                 "..\\res\\font.otf"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -70,11 +70,11 @@ IDR_MY_FONT2            MY_FONT                 "res\\font.otf"
 // MY_OGG
 //
 
-IDR_MY_OGG1             MY_OGG                  "res\\bottle.ogg"
+IDR_MY_OGG1             MY_OGG                  "..\\res\\bottle.ogg"
 
-IDR_MY_OGG2             MY_OGG                  "res\\buble.ogg"
+IDR_MY_OGG2             MY_OGG                  "..\\res\\buble.ogg"
 
-IDR_MY_OGG3             MY_OGG                  "res\\Zapp-ICanMakeYouDance.ogg"
+IDR_MY_OGG3             MY_OGG                  "..\\res\\Zapp-ICanMakeYouDance.ogg"
 
 #endif    // Русский (Россия) resources
 /////////////////////////////////////////////////////////////////////////////

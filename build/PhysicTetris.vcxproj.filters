@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\79307\Desktop\pt cmake\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\Event.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\Resources.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\Scene.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\Vector2f.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\ParticleSystem\Affector\DisapperingAffector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\ParticleSystem\Affector\IAffector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\ParticleSystem\Affector\RainbowAffector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\ParticleSystem\Finishable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\ParticleSystem\Particle.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\ParticleSystem\ParticleSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\ParticleSystem\ParticleSystemConfig.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\ParticleSystem\ParticleSystemList.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\States\IState.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\States\InGameState.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\States\MenuState.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\States\RestartGameState.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\States\States.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\TetrisLogic\Figure\FigureCubesBody.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\TetrisLogic\Figure\FigureShapeBody.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\TetrisLogic\Figure\Figures.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\TetrisLogic\Figure\IFigure.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\TetrisLogic\Floor.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\TetrisLogic\Rules\IRules.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\TetrisLogic\Rules\Rules.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\TetrisLogic\Rules\StandartRules.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\TetrisLogic\SelectedFigure.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\TetrisLogic\Tetris.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\TetrisVisual\FigureHighLight.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\TetrisVisual\FigureView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\TetrisVisual\FloorView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\TetrisVisual\MenuView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\TetrisVisual\ParticlesTemplate.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\TetrisVisual\TetrisView.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\79307\Desktop\pt cmake\src\resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\79307\Desktop\pt cmake\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="C:\Users\79307\Desktop\pt cmake\src\PhysicTetris.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{9B565061-D6DE-3123-AD4C-5B560B64F658}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C34F373F-AA84-31FE-9B00-B93D3DD2B361}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

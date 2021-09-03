@@ -38,39 +38,39 @@ namespace pt
 			HGLOBAL res;
 			DWORD size;
 
-			find = FindResource(NULL, MAKEINTRESOURCE(IDB_PNG1), L"PNG");
+			find = FindResource(NULL, MAKEINTRESOURCE(IDB_PNG1), "PNG");
 			size = SizeofResource(NULL, find);
 			res = LoadResource(NULL, find);
 			BackgroundTex.loadFromMemory(res, size);
 
-			find = FindResource(NULL, MAKEINTRESOURCE(IDB_PNG2), L"PNG");
+			find = FindResource(NULL, MAKEINTRESOURCE(IDB_PNG2), "PNG");
 			size = SizeofResource(NULL, find);
 			res = LoadResource(NULL, find);
 			FloorTex.loadFromMemory(res, size);
 
-			find = FindResource(NULL, MAKEINTRESOURCE(IDB_PNG3), L"PNG");
+			find = FindResource(NULL, MAKEINTRESOURCE(IDB_PNG3), "PNG");
 			size = SizeofResource(NULL, find);
 			res = LoadResource(NULL, find);
 			FigureTex.loadFromMemory(res, size);
 
-			find = FindResource(NULL, MAKEINTRESOURCE(IDR_MY_FONT2), L"MY_FONT");
+			find = FindResource(NULL, MAKEINTRESOURCE(IDR_MY_FONT2), "MY_FONT");
 			res = LoadResource(NULL, find);
 			size = SizeofResource(NULL, find);
 			Font.loadFromMemory(res, size);
 
-			find = FindResource(NULL, MAKEINTRESOURCE(IDR_MY_OGG2), L"MY_OGG");
+			find = FindResource(NULL, MAKEINTRESOURCE(IDR_MY_OGG2), "MY_OGG");
 			res = LoadResource(NULL, find);
 			size = SizeofResource(NULL, find);
 			m_figureSpawnSoundBuffer.loadFromMemory(res, size);
 			FigureSpawnSound.setBuffer(m_figureSpawnSoundBuffer);
 
-			find = FindResource(NULL, MAKEINTRESOURCE(IDR_MY_OGG1), L"MY_OGG");
+			find = FindResource(NULL, MAKEINTRESOURCE(IDR_MY_OGG1), "MY_OGG");
 			res = LoadResource(NULL, find);
 			size = SizeofResource(NULL, find);
 			m_FigureCollishionSoundBuffer.loadFromMemory(res, size);
 			FigureCollishionSound.setBuffer(m_FigureCollishionSoundBuffer);
 
-			find = FindResource(NULL, MAKEINTRESOURCE(IDR_MY_OGG3), L"MY_OGG");
+			find = FindResource(NULL, MAKEINTRESOURCE(IDR_MY_OGG3), "MY_OGG");
 			res = LoadResource(NULL, find);
 			size = SizeofResource(NULL, find);
 			BackMusic.openFromMemory(res, size);
